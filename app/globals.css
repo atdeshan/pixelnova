@@ -1,0 +1,124 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg-dark: #0A0A0A;
+  --bg-light: #FFFFFF;
+  --fg-dark: #FFFFFF;
+  --fg-light: #0A0A0A;
+  --muted-dark: rgba(255, 255, 255, 0.62);
+  --muted-light: rgba(10, 10, 10, 0.62);
+  --rule-dark: rgba(255, 255, 255, 0.10);
+  --rule-light: rgba(10, 10, 10, 0.10);
+  --nav-height: 80px;
+  --focus-ring: rgba(99, 168, 255, 0.85);
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* Hash anchors land below the fixed nav */
+[data-section] {
+  scroll-margin-top: var(--nav-height);
+}
+
+/* Keyboard focus — visible ring only when navigating with keyboard */
+:focus { outline: none; }
+:focus-visible,
+.focus-ring:focus-visible {
+  outline: 2px solid var(--focus-ring);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Skip-to-content link, visually hidden until focused */
+.skip-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 100;
+  padding: 10px 16px;
+  background: #0A0A0A;
+  color: #FFFFFF;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transform: translateY(-200%);
+  transition: transform 0.2s ease;
+}
+.skip-link:focus { transform: translateY(0); }
+
+/* Respect user motion preferences */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .pulse-dot { animation: none !important; }
+}
+
+body {
+  margin: 0;
+  background: var(--bg-light);
+  color: var(--fg-light);
+  font-family: var(--font-inter), system-ui, sans-serif;
+}
+
+::selection {
+  background: var(--fg-dark);
+  color: var(--bg-dark);
+}
+
+/* ─────────── UTILITY CLASSES ─────────── */
+
+.mono {
+  font-family: var(--font-mono), ui-monospace, monospace;
+}
+
+.label {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+}
+
+/* Animated underline on text links */
+.underline-anim {
+  position: relative;
+  display: inline-block;
+}
+.underline-anim::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+}
+.underline-anim:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Pulsing availability dot */
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+.pulse-dot {
+  animation: pulse-dot 2.5s ease-in-out infinite;
+}
