@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "PixelNova — Digital Studio",
+    name: "PixelNova · Digital Studio",
     short_name: "PixelNova",
     description:
       "A two-person studio for founders who refuse to ship something forgettable.",

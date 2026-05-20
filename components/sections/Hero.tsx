@@ -13,7 +13,7 @@ export default function Hero() {
       id="hero"
       data-section="hero"
       data-theme="dark"
-      className="relative min-h-screen w-full overflow-hidden"
+      className="relative h-screen min-h-[640px] w-full overflow-hidden"
       style={{ background: "var(--bg-dark)" }}
     >
       {/* IMAGE LAYER — behind everything */}
@@ -51,57 +51,58 @@ export default function Hero() {
         />
       </div>
 
-      {/* TEXT LAYER — on top */}
-      <div className="relative z-10 min-h-screen flex flex-col justify-center max-w-[1500px] mx-auto px-6 md:px-10 pt-28 sm:pt-32 pb-16">
+      {/* TEXT LAYER — on top, sized to viewport */}
+      <div className="relative z-10 h-screen min-h-[640px] flex flex-col justify-center max-w-[1500px] mx-auto px-6 md:px-10 pt-24 pb-10">
         <motion.div
           initial={{ opacity: 0, y: 10 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className="label mb-8 md:mb-12 text-white/70"
+          className="label mb-5 md:mb-8 text-white/70"
         >
-          Digital Studio · Est. {STUDIO.established}
+          Creative-Tech Studio · Est. {STUDIO.established}
         </motion.div>
 
         <h1
           className="font-bold uppercase leading-[0.92] tracking-tight text-white"
-          style={{ fontSize: "clamp(2.75rem, 12vw, 14rem)" }}
+          style={{ fontSize: "clamp(2.25rem, 8.5vw, 9rem)" }}
         >
-          <RevealLine delay={0.15}>Work Built</RevealLine>
-          <RevealLine delay={0.3}>To Last.</RevealLine>
+          <RevealLine delay={0.15}>From Imagination</RevealLine>
+          <RevealLine delay={0.3}>To Innovation.</RevealLine>
         </h1>
 
         <motion.p
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.7 }}
-          className="mt-8 md:mt-10 text-base md:text-lg leading-relaxed max-w-md text-white/70"
+          className="mt-5 md:mt-7 text-base md:text-lg leading-relaxed max-w-xl text-white/70"
         >
-          A two-person studio for founders who refuse to ship something forgettable.
+          We build powerful digital experiences. Combining creativity, technology, and
+          strategy to help businesses grow, scale, and stand out.
         </motion.p>
 
         <motion.div
           initial={{ opacity: 0, y: 15 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.85 }}
-          className="mt-8 md:mt-10 flex flex-col sm:flex-row gap-3"
+          className="mt-6 md:mt-8 flex flex-col sm:flex-row gap-3"
         >
           <motion.a
             href="#contact"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", damping: 18, stiffness: 280 }}
-            className="inline-flex items-center justify-between gap-4 px-7 py-4 rounded-full label bg-white text-black focus-ring"
+            className="inline-flex items-center justify-between gap-4 px-6 py-3.5 rounded-full label bg-white text-black focus-ring"
           >
-            Start a project <ArrowRight size={15} strokeWidth={2} />
+            Start your project <ArrowRight size={14} strokeWidth={2} />
           </motion.a>
           <motion.a
-            href="#work"
+            href="#services"
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.97 }}
             transition={{ type: "spring", damping: 18, stiffness: 280 }}
-            className="inline-flex items-center justify-between gap-4 px-7 py-4 rounded-full label border border-white/25 text-white focus-ring"
+            className="inline-flex items-center justify-between gap-4 px-6 py-3.5 rounded-full label border border-white/25 text-white focus-ring"
           >
-            View work <ArrowUpRight size={15} strokeWidth={2} />
+            Explore services <ArrowUpRight size={14} strokeWidth={2} />
           </motion.a>
         </motion.div>
 
@@ -109,11 +110,11 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.8, delay: 1.0 }}
-          className="mt-12 md:mt-16 flex gap-6 sm:gap-10 flex-wrap"
+          className="mt-8 md:mt-10 flex gap-6 sm:gap-10 flex-wrap"
         >
           {STATS.map((s) => (
             <div key={s.label}>
-              <div className="text-xl md:text-2xl font-semibold mb-1 text-white">{s.n}</div>
+              <div className="text-lg md:text-xl font-semibold mb-0.5 text-white">{s.n}</div>
               <div className="label text-white/70">{s.label}</div>
             </div>
           ))}

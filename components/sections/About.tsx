@@ -4,7 +4,6 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import FadeUp from "@/components/ui/FadeUp";
 import { ArrowUpRight } from "lucide-react";
-import { STUDIO } from "@/lib/content";
 import { IMG } from "@/lib/images";
 
 export default function About() {
@@ -24,7 +23,7 @@ export default function About() {
               <div className="relative aspect-[4/5] rounded-2xl overflow-hidden">
                 <Image
                   src={IMG.about}
-                  alt="The two-person PixelNova studio at work"
+                  alt="PixelNova creative-tech studio"
                   fill
                   sizes="(max-width: 768px) 100vw, 50vw"
                   className="object-contain"
@@ -37,49 +36,44 @@ export default function About() {
           <div className="md:col-span-6">
             <FadeUp delay={0.1}>
               <div className="label mb-6 md:mb-8" style={{ color: "var(--muted-dark)" }}>
-                About Us
+                About PixelNova
               </div>
             </FadeUp>
 
             <FadeUp delay={0.15}>
               <h2
                 className="font-bold uppercase leading-[0.95] tracking-tight mb-8 md:mb-10"
-                style={{ fontSize: "clamp(2rem, 5.5vw, 5rem)" }}
+                style={{ fontSize: "clamp(2rem, 5.5vw, 4.5rem)" }}
               >
-                Two Heads,
+                A Creative-Tech Studio
                 <br />
-                One Studio.
+                Built for Modern Brands.
               </h2>
             </FadeUp>
 
             <FadeUp delay={0.25}>
               <p
-                className="text-base md:text-lg leading-relaxed mb-8 md:mb-10 max-w-lg"
+                className="text-base md:text-lg leading-relaxed mb-6 max-w-lg"
                 style={{ color: "var(--muted-dark)" }}
               >
-                PixelNova brings design and engineering under one roof — so the
-                work doesn&apos;t lose anything in translation.
+                PixelNova is a next-generation digital studio that blends creative
+                excellence with advanced technology. We help businesses transform
+                ideas into impactful digital solutions: from brand identity to
+                intelligent automation systems.
               </p>
             </FadeUp>
 
-            <FadeUp delay={0.35}>
-              <div className="flex flex-wrap gap-2 mb-8 md:mb-10">
-                {STUDIO.founders.map((name, i) => (
-                  <span
-                    key={name}
-                    className="label px-4 py-2 rounded-full"
-                    style={{
-                      border: "1px solid var(--rule-dark)",
-                      color: "var(--fg-dark)",
-                    }}
-                  >
-                    {name} · {i === 0 ? "Engineering" : "Design"}
-                  </span>
-                ))}
-              </div>
+            <FadeUp delay={0.3}>
+              <p
+                className="text-base md:text-lg leading-relaxed mb-8 md:mb-10 max-w-lg"
+                style={{ color: "var(--muted-dark)" }}
+              >
+                Our approach is simple: create meaningful experiences that not only
+                look premium, but deliver real business results.
+              </p>
             </FadeUp>
 
-            <FadeUp delay={0.45}>
+            <FadeUp delay={0.4}>
               <motion.a
                 href="#contact"
                 whileHover={{ scale: 1.03 }}
@@ -88,7 +82,7 @@ export default function About() {
                 className="inline-flex items-center gap-3 px-7 py-4 rounded-full label focus-ring"
                 style={{ background: "var(--fg-dark)", color: "var(--bg-dark)" }}
               >
-                Get in touch <ArrowUpRight size={15} strokeWidth={2} />
+                Start a conversation <ArrowUpRight size={15} strokeWidth={2} />
               </motion.a>
             </FadeUp>
           </div>

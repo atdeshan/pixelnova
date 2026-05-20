@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { Mail, Instagram, Linkedin, Dribbble, Github } from "lucide-react";
+import { Mail, Phone, Instagram, Linkedin, Dribbble, Github } from "lucide-react";
 import { NAV, STUDIO } from "@/lib/content";
 
 function useStudioClock() {
@@ -53,7 +53,7 @@ export default function Footer() {
               className="text-lg md:text-2xl leading-snug max-w-md"
               style={{ color: "rgba(255,255,255,0.85)" }}
             >
-              A small studio. Built around the work.
+              From Imagination to Innovation.
             </p>
           </div>
 
@@ -104,14 +104,26 @@ export default function Footer() {
             <div className="label mb-4 md:mb-5" style={{ color: "var(--muted-dark)" }}>
               Get in touch
             </div>
-            <a
-              href={`mailto:${STUDIO.email}`}
-              className="text-sm underline-anim inline-flex items-center gap-2 mb-3 focus-ring rounded break-all"
-            >
-              <Mail size={13} className="shrink-0" /> {STUDIO.email}
-            </a>
+            <ul className="space-y-3 text-sm">
+              <li>
+                <a
+                  href={`mailto:${STUDIO.email}`}
+                  className="underline-anim inline-flex items-center gap-2 focus-ring rounded break-all"
+                >
+                  <Mail size={13} className="shrink-0" /> {STUDIO.email}
+                </a>
+              </li>
+              <li>
+                <a
+                  href={`tel:${STUDIO.phone.replace(/\s/g, "")}`}
+                  className="underline-anim inline-flex items-center gap-2 focus-ring rounded"
+                >
+                  <Phone size={13} className="shrink-0" /> {STUDIO.phone}
+                </a>
+              </li>
+            </ul>
             <div
-              className="label mt-3 flex flex-wrap items-center gap-x-3 gap-y-1"
+              className="label mt-4 flex flex-wrap items-center gap-x-3 gap-y-1"
               style={{ color: "var(--muted-dark)" }}
             >
               <span>{STUDIO.location}</span>
@@ -121,7 +133,7 @@ export default function Footer() {
                 style={{ background: "var(--fg-dark)" }}
               />
               <span className="mono" style={{ color: "var(--fg-dark)" }}>
-                {localTime || "—"}
+                {localTime || "··"}
               </span>
             </div>
           </div>

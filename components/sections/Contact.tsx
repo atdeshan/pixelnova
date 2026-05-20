@@ -2,13 +2,17 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { ArrowUpRight, Mail } from "lucide-react";
+import { ArrowUpRight, Mail, Phone, MessageCircle, Globe } from "lucide-react";
 import FadeUp from "@/components/ui/FadeUp";
 import RevealLine from "@/components/ui/RevealLine";
 import { STUDIO } from "@/lib/content";
 import { IMG } from "@/lib/images";
 
 export default function Contact() {
+  const whatsappHref = `https://wa.me/${STUDIO.whatsapp}?text=${encodeURIComponent(
+    "Hi PixelNova, I'd like to start a conversation about a project."
+  )}`;
+
   return (
     <section
       id="contact"
@@ -55,10 +59,10 @@ export default function Contact() {
           {/* Headline */}
           <h2
             className="font-bold uppercase leading-[0.9] tracking-tight mb-8 md:mb-10"
-            style={{ fontSize: "clamp(2.25rem, 7vw, 6.5rem)" }}
+            style={{ fontSize: "clamp(2.25rem, 7vw, 6rem)" }}
           >
             <RevealLine whileInView delay={0.1}>Let&apos;s Build</RevealLine>
-            <RevealLine whileInView delay={0.25}>Something.</RevealLine>
+            <RevealLine whileInView delay={0.25}>Something Great.</RevealLine>
           </h2>
 
           {/* Description */}
@@ -67,33 +71,63 @@ export default function Contact() {
               className="text-lg md:text-xl leading-relaxed max-w-xl mb-10"
               style={{ color: "rgba(255,255,255,0.75)" }}
             >
-              Tell us what you&apos;re working on. We reply within two business days.
+              Ready to elevate your business? Let&apos;s turn your ideas into
+              powerful digital experiences.
             </p>
           </FadeUp>
 
-          {/* CTA + email */}
+          {/* Primary CTA */}
           <FadeUp delay={0.4}>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-6">
-              <motion.a
-                href={`mailto:${STUDIO.email}?subject=Project%20inquiry`}
-                whileHover={{ scale: 1.03 }}
-                whileTap={{ scale: 0.97 }}
-                transition={{ type: "spring", damping: 18, stiffness: 280 }}
-                className="inline-flex items-center gap-4 px-9 py-5 rounded-full text-base font-medium focus-ring"
-                style={{ background: "var(--fg-dark)", color: "var(--bg-dark)" }}
-              >
-                Write to us
-                <ArrowUpRight size={18} strokeWidth={2} />
-              </motion.a>
+            <motion.a
+              href={whatsappHref}
+              target="_blank"
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.03 }}
+              whileTap={{ scale: 0.97 }}
+              transition={{ type: "spring", damping: 18, stiffness: 280 }}
+              className="inline-flex items-center gap-4 px-9 py-5 rounded-full text-base font-medium focus-ring mb-10"
+              style={{ background: "var(--fg-dark)", color: "var(--bg-dark)" }}
+            >
+              Start a Conversation
+              <ArrowUpRight size={18} strokeWidth={2} />
+            </motion.a>
+          </FadeUp>
 
+          {/* Contact details */}
+          <FadeUp delay={0.5}>
+            <div className="grid sm:grid-cols-2 gap-x-8 gap-y-4 max-w-xl">
+              <a
+                href={`tel:${STUDIO.phone.replace(/\s/g, "")}`}
+                className="group flex items-center gap-3 focus-ring rounded"
+              >
+                <Phone size={16} strokeWidth={1.8} className="shrink-0" />
+                <span className="text-base group-hover:underline">{STUDIO.phone}</span>
+              </a>
+              <a
+                href={whatsappHref}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group flex items-center gap-3 focus-ring rounded"
+              >
+                <MessageCircle size={16} strokeWidth={1.8} className="shrink-0" />
+                <span className="text-base group-hover:underline">
+                  WhatsApp{" "}
+                  <span style={{ color: "var(--muted-dark)" }}>· available</span>
+                </span>
+              </a>
               <a
                 href={`mailto:${STUDIO.email}`}
-                className="inline-flex items-center gap-3 text-base underline-anim focus-ring rounded break-all"
-                style={{ color: "var(--muted-dark)" }}
+                className="group flex items-center gap-3 focus-ring rounded break-all"
               >
-                <Mail size={15} className="shrink-0" />
-                {STUDIO.email}
+                <Mail size={16} strokeWidth={1.8} className="shrink-0" />
+                <span className="text-base group-hover:underline">
+                  {STUDIO.email}
+                </span>
               </a>
+              <div className="flex items-center gap-3">
+                <Globe size={16} strokeWidth={1.8} className="shrink-0" />
+                <span className="text-base">{STUDIO.website}</span>
+              </div>
             </div>
           </FadeUp>
         </div>
@@ -107,7 +141,6 @@ export default function Contact() {
           className="hidden md:block md:col-span-5 relative"
         >
           <div className="relative aspect-square w-full max-w-[520px] mx-auto">
-            {/* Soft radial glow behind the figure */}
             <div
               className="absolute inset-0 pointer-events-none"
               style={{

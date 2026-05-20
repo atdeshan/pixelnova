@@ -106,7 +106,7 @@ export default function Nav() {
         <a
           href="#hero"
           className="flex items-center gap-3 focus-ring rounded"
-          aria-label="PixelNova — home"
+          aria-label="PixelNova home"
         >
           <span
             className="inline-block w-2 h-2 rounded-full"

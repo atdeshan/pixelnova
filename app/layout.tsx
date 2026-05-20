@@ -17,10 +17,10 @@ const jetbrains = JetBrains_Mono({
   weight: ["400", "500"],
 });
 
-const SITE_URL = "https://pixelnova.studio";
-const TITLE = "PixelNova — Digital Studio";
+const SITE_URL = `https://${STUDIO.website}`;
+const TITLE = "PixelNova · From Imagination to Innovation";
 const DESCRIPTION =
-  "A two-person studio for founders who refuse to ship something forgettable. Design, engineering, 3D & motion.";
+  "A creative-tech studio blending design, development, and AI automation to help businesses grow, scale, and stand out.";
 
 export const metadata: Metadata = {
   title: {
@@ -33,13 +33,15 @@ export const metadata: Metadata = {
   authors: STUDIO.founders.map((name) => ({ name })),
   creator: STUDIO.name,
   keywords: [
+    "creative-tech studio",
+    "AI business automation",
+    "WhatsApp AI chatbot",
+    "brand identity Sri Lanka",
+    "web development",
+    "video production",
+    "3D design",
+    "business website",
     "digital studio",
-    "design studio",
-    "web design",
-    "Next.js development",
-    "3D motion",
-    "brand design",
-    "Sri Lanka",
     "PixelNova",
   ],
   openGraph: {

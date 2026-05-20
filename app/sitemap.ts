@@ -1,10 +1,11 @@
 import type { MetadataRoute } from "next";
+import { STUDIO } from "@/lib/content";
 
-const SITE_URL = "https://pixelnova.studio";
+const SITE_URL = `https://${STUDIO.website}`;
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
-  const sections = ["", "#about", "#services", "#work", "#process", "#contact"];
+  const sections = ["", "#about", "#services", "#why", "#contact"];
 
   return sections.map((s) => ({
     url: `${SITE_URL}/${s}`,

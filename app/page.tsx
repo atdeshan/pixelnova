@@ -2,9 +2,11 @@ import Nav from "@/components/Nav";
 import BackToTop from "@/components/BackToTop";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
+import Founders from "@/components/sections/Founders";
 import Services from "@/components/sections/Services";
-import Work from "@/components/sections/Work";
-import Process from "@/components/sections/Process";
+import Why from "@/components/sections/Why";
+import FeaturedOffer from "@/components/sections/FeaturedOffer";
+import FAQ from "@/components/sections/FAQ";
 import Contact from "@/components/sections/Contact";
 import Footer from "@/components/sections/Footer";
 
@@ -14,9 +16,11 @@ export default function HomePage() {
       <Nav />
       <Hero />
       <About />
+      <Founders />
       <Services />
-      <Work />
-      <Process />
+      <Why />
+      <FeaturedOffer />
+      <FAQ />
       <Contact />
       <Footer />
       <BackToTop />
